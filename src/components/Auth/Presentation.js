@@ -1,25 +1,17 @@
-import React from "react"
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Button,
-  Snackbar,
-  TextField,
-  Paper,
-} from "@material-ui/core"
+import { Card, CardActions, CardContent, Button, Snackbar, Paper } from "@material-ui/core"
 import MuiAlert from "@material-ui/lab/Alert"
 import { useStyles } from "../styles/styles"
-
+import { CustomField } from "../../ComponentsUsed/TextFields"
+import { useState } from "react"
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />
 }
 
 function Presentation(props) {
   const classes = useStyles()
-  const { handleChange, handleSubmit, authStatus,authError } = props
+  const { handleChange, handleSubmit, authStatus, authError, email, password } = props
 
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
 
   const handleClick = () => {
     setOpen(true)
@@ -34,46 +26,47 @@ function Presentation(props) {
   }
 
   return (
-    <div>
-      <Paper elevation={2}>
-        <Card>
-          <CardContent>
-            <form onSubmit={handleSubmit}>
-              <TextField
-                id="email"
-                required
-                label="Email"
-                variant="outlined"
-                onChange={handleChange}
-              />
-              <TextField
-                id="password"
-                required
-                label="Password"
-                variant="outlined"
-                onChange={handleChange}
-              />
-              <CardActions>
-                <Button variant="contained" type="submit" color="primary" onClick={handleClick}>
-                  Signin
-                </Button>
-                {(authError) ? 
-                 <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-                 <Alert onClose={handleClose} severity="success">
-                   {authStatus}
-                 </Alert>
-               </Snackbar> : <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+    <div className={classes.form}>
+      <Paper elevation={20}>
+      <Card  className={classes.form}>
+        <CardContent>
+          <form onSubmit={handleSubmit} className={classes.root}>
+            <CustomField
+              type="email"
+              label="email"
+              id="email"
+              name="email"
+              value={email}
+              handleChange={handleChange}
+            />
+            <CustomField
+              id="password"
+              type="password"
+              label="Password"
+              value={password}
+              handleChange={handleChange}
+            />
+            <CardActions>
+              <Button variant="contained" type="submit" color="primary" onClick={handleClick}>
+                Signin
+              </Button>
+              {authError ? (
+                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                  <Alert onClose={handleClose} severity="success">
+                    {authStatus}
+                  </Alert>
+                </Snackbar>
+              ) : (
+                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                   <Alert onClose={handleClose} severity="error">
                     {authStatus}
                   </Alert>
                 </Snackbar>
-              
-              }
-               
-              </CardActions>
-            </form>
-          </CardContent>
-        </Card>
+              )}
+            </CardActions>
+          </form>
+        </CardContent>
+      </Card>
       </Paper>
     </div>
   )

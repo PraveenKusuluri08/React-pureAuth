@@ -6,7 +6,7 @@ export const reducers = (state = initialState, action) => {
       console.log("Login request")
       return {
         ...state,
-        authStatus:null,
+        authStatus:"Requesting",
         authError :true
       }
     case ACTIONS.AUTH_SUCCESS:
