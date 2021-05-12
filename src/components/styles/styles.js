@@ -3,9 +3,19 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
   root: {
-    width: "100%",
+    width: "400px",
+    justifyContent: "center",
     "& > * + *": {
-      marginTop: theme.spacing(2)
-    }
+      marginTop: theme.spacing(8)
+    },
+    
+  },
+  form :{
+   /* backgroundColor :"red", */
+    marginLeft :"auto",
+    marginRight :"auto",
+    padding :"50px",
+    width:"500px",
+    alignItems:"center"
   }
 }));

@@ -31,6 +31,7 @@ export class Container extends Component {
           handleSubmit={this.handleSubmit}
           authStatus={authStatus}
           authError={authError}
+          isEnabled ={this.isEnabled}
         />
       </div>
     )
