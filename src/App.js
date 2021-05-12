@@ -2,7 +2,7 @@ import Auth from "./components/Auth"
 import './App.css';
 import {Provider} from "react-redux"
 
-import {store} from "./redux/store/store"
+import {store} from "./store/store"
 function App() {
   return (
     <div className="App">
