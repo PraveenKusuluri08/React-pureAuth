@@ -22,15 +22,25 @@ export class Container extends Component {
     this.props.login(this.state)
   }
   render() {
+    const {authStatus,authError} =this.props
     return (
       <div>
         <Presentation
           {...this.state}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          authStatus={authStatus}
+          authError={authError}
         />
       </div>
     )
+  }
+}
+const mapStateToProps =(state)=>{
+  console.log("line-37-container",state.authError.authError.authError)
+  return{
+    authStatus :state.authenticate.auth.authStatus,
+    authError :state.authError.authError.authError
   }
 }
 const mapDispatchToProps=(dispatch)=>{
@@ -38,4 +48,4 @@ const mapDispatchToProps=(dispatch)=>{
     login:(creds)=> dispatch(logIn(creds))
   }
 }
-export default connect(null, mapDispatchToProps) (Container)
+export default connect(mapStateToProps, mapDispatchToProps) (Container)

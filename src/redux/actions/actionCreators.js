@@ -7,11 +7,12 @@ export const authRequest=()=>{
 }
 export const authSuccess=()=>{
   return {
-    type:ACTIONS.AUTH_SUCCESS
+    type:ACTIONS.AUTH_SUCCESS,
   }
 }
-export const authFailure=()=>{
+export const authFailure=(error)=>{
   return {
-    type:ACTIONS.AUTH_FAILURE
+    type:ACTIONS.AUTH_FAILURE,
+    payload:error.code
   }
 }                                                                                                     

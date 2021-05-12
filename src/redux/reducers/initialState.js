@@ -1,4 +1,5 @@
 const initialState={
-  authStatus:null
+  authStatus:null,
+  authError :false
 }
 export default initialState;

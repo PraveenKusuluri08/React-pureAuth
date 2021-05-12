@@ -8,12 +8,13 @@ export const logIn = (credentials) => {
     firebase
       .auth()
       .signInWithEmailAndPassword(credentials.email, credentials.password)
-      .then(() => {
+      .then((res) => {
+        console.log(res)
         dispatch(authSuccess())
       })
       .catch((error) => {
         console.log(error.message)
-        dispatch(authFailure(),error)
+        dispatch(authFailure(error),error)
       })
   }
 }
