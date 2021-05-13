@@ -3,6 +3,12 @@ import { InputAdornment, IconButton } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import validate from "./validations"
+import {
+  TextField,
+  MenuItem,
+  FormControlLabel,
+  Checkbox,
+} from "@material-ui/core";
 export const EmailInput = ({
   label,
   name,
@@ -39,6 +45,7 @@ export const EmailInput = ({
 export const PasswordInput = ({
   label,
   name,
+  type,
   id,
   handleChange,
   handleSubmit,
@@ -55,6 +62,7 @@ export const PasswordInput = ({
     <ValidatorForm autoComplete="on" onSubmit={handleSubmit}>
     <TextValidator
       password
+      type={type}
       label={label}
       name={name}
       id={id}
@@ -79,16 +87,42 @@ export const PasswordInput = ({
     </ValidatorForm>
   );
 };
-
+export const NameInput = ({
+  label,
+  type,
+  id={id},
+  name,
+  handleChange,
+  required,
+  value = "",
+  variant = "outlined",
+}) => {
+  return (
+    <TextField
+      label={label}
+      type={type}
+      id={id}
+      name={name}
+      onChange={(e) =>
+        validate.checkName(e.target.value) ? handleChange(e) : () => {}
+      }
+      required={required}
+      helperText={!validate.checkName(value) ? "Enter valid " + label : ""}
+      value={value}
+      variant={variant}
+      size="small"
+      fullWidth
+    />
+  );
+};
 export function CustomField(details) {
   switch (details.type) {
-
     case "email":
       return <EmailInput {...details} />
 
     case "password":
       return <PasswordInput {...details} />;
-
+      case "name" : return <NameInput {...details} />;
     default:
       return <div />;
   }

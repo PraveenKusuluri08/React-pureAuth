@@ -1,7 +1,7 @@
 import { Card, CardActions, CardContent, Button, Snackbar, Paper } from "@material-ui/core"
 import MuiAlert from "@material-ui/lab/Alert"
-import { useStyles } from "../styles/styles"
-import { CustomField } from "../../ComponentsUsed/TextFields"
+import { useStyles } from "../../styles/styles"
+import { CustomField } from "../../../ComponentsUsed/TextFields"
 import { useState } from "react"
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />
@@ -26,8 +26,8 @@ function Presentation(props) {
   }
 
   return (
-    <div className={classes.form}>
-      <Paper elevation={20}>
+    <div className={classes.signUp}>
+      
       <Card  className={classes.form}>
         <CardContent>
           <form onSubmit={handleSubmit} className={classes.root}>
@@ -36,6 +36,7 @@ function Presentation(props) {
               label="email"
               id="email"
               name="email"
+              required
               value={email}
               handleChange={handleChange}
             />
@@ -43,6 +44,7 @@ function Presentation(props) {
               id="password"
               type="password"
               label="Password"
+              required
               value={password}
               handleChange={handleChange}
             />
@@ -67,8 +69,7 @@ function Presentation(props) {
           </form>
         </CardContent>
       </Card>
-      </Paper>
-    </div>
+     </div>
   )
 }
 

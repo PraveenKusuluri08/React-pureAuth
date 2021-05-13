@@ -17,5 +17,13 @@ export const useStyles = makeStyles((theme) => ({
     padding :"50px",
     width:"500px",
     alignItems:"center"
+  },
+  signUp :{
+    marginLeft :"auto",
+    marginRight :"auto",
+    padding :"50px",
+    width:"500px",
+    alignItems:"center",
+    marginTop :"30px"
   }
 }));
