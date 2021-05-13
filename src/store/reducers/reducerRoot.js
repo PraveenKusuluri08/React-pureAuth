@@ -8,5 +8,7 @@ const reducerRoot =combineReducers({
   authenticate :rootReducer,
   authError :rootReducer,
   firebase :firebaseReducer,
+  signUp : rootReducer,
+  signUpState:rootReducer,
 })
 export default reducerRoot

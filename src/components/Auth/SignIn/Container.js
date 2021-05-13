@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { logIn } from "../../redux/middleware"
+import { logIn } from "../../../redux/middleware/index"
 import Presentation from "./Presentation"
 import {connect} from "react-redux"
 export class Container extends Component {

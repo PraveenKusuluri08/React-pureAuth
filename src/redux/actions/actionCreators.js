@@ -13,6 +13,26 @@ export const authSuccess=()=>{
 export const authFailure=(error)=>{
   return {
     type:ACTIONS.AUTH_FAILURE,
-    payload:error.code
+   payload:error.message
+ 
   }
-}                                                                                                     
+}
+
+//SIGNUP actions creators
+export const signUpRequest=()=>{
+  return{
+    type:ACTIONS.AUTH_SIGNUP_REQUEST
+  }
+}
+export const signUpSuccess=()=>{
+  return{
+    type:ACTIONS.AUTH_SIGNUP_SUCCESS,
+
+  }
+}
+export const signUpFailure=(error)=>{
+  return{
+    type:ACTIONS.AUTH_SIGNUP_FAILURE,
+    payload : error.code
+  }
+}

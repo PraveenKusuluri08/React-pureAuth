@@ -6,25 +6,26 @@ export const reducers = (state = initialState, action) => {
       console.log("Login request")
       return {
         ...state,
-        authStatus:"Requesting",
-        authError :true
+        authStatus: "Requesting",
+        authError: true,
       }
     case ACTIONS.AUTH_SUCCESS:
       console.log("login Success")
       return {
         ...state,
-        authStatus:"Login Success",
-        authError :true
+        authStatus: "Login Success",
+        authError: true,
       }
     case ACTIONS.AUTH_FAILURE:
       console.log("login Failure")
 
       return {
         ...state,
-        authStatus :action.payload,
-        authError :false
+        authStatus: action.payload,
+        authError: false,
       }
-      default :
-      return state;
+
+    default:
+      return state
   }
 }
