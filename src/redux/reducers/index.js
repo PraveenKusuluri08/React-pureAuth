@@ -1,4 +1,4 @@
-import {reducers } from "./reducers"
+import {reducers } from "./signInReducers"
 import {combineReducers} from "redux"
 import signUpReducers from "./signUpReducers"
 const rootReducer = combineReducers({
