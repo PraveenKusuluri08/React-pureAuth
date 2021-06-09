@@ -5,6 +5,9 @@ import {
   signUpRequest,
   signUpSuccess,
   signUpFailure,
+  signOutRequest,
+  signOutSuccess,
+  signOutFaliure,
 } from "../actions/actionCreators"
 
 export const logIn = (credentials) => {
@@ -50,6 +53,23 @@ export const signUp = (newUser) => {
         console.log(error.message)
         console.log("SignUp failure")
         dispatch(signUpFailure(error), error)
+      })
+  }
+}
+
+export const _signOut = () => {
+  return (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase()
+    dispatch(signOutRequest())
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        dispatch(signOutSuccess())
+      })
+      .catch((error) => {
+        console.log(error)
+        dispatch(signOutFaliure(error))
       })
   }
 }

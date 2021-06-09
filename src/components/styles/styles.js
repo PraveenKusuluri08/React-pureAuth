@@ -25,5 +25,13 @@ export const useStyles = makeStyles((theme) => ({
     width:"500px",
     alignItems:"center",
     marginTop :"30px"
+  },
+  signIn :{
+    marginLeft :"auto",
+    marginRight :"auto",
+    padding :"50px",
+    width:"500px",
+    alignItems:"center",
+    marginTop :"30px"
   }
 }));

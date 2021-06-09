@@ -1,34 +1,17 @@
-import { Card, CardActions, CardContent, Button, Snackbar, Paper } from "@material-ui/core"
-import MuiAlert from "@material-ui/lab/Alert"
+import { Card, CardActions, CardContent, Button } from "@material-ui/core"
+
 import { useStyles } from "../../styles/styles"
 import { CustomField } from "../../../ComponentsUsed/TextFields"
-import { useState } from "react"
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />
-}
 
+import { Redirect } from "react-router"
 function Presentation(props) {
   const classes = useStyles()
-  const { handleChange, handleSubmit, authStatus, authError, email, password } = props
-
-  const [open, setOpen] = useState(false)
-
-  const handleClick = () => {
-    setOpen(true)
-  }
-
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return
-    }
-
-    setOpen(false)
-  }
+  const { handleChange, handleSubmit, auth, email, password } = props
 
   return (
-    <div className={classes.signUp}>
-      
-      <Card  className={classes.form}>
+    <div className={classes.signIn}>
+      {auth.uid ? <Redirect to="/" /> : null}
+      <Card className={classes.form}>
         <CardContent>
           <form onSubmit={handleSubmit} className={classes.root}>
             <CustomField
@@ -49,27 +32,14 @@ function Presentation(props) {
               handleChange={handleChange}
             />
             <CardActions>
-              <Button variant="contained" type="submit" color="primary" onClick={handleClick}>
+              <Button variant="contained" type="submit" color="primary">
                 Signin
               </Button>
-              {authError ? (
-                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-                  <Alert onClose={handleClose} severity="success">
-                    {authStatus}
-                  </Alert>
-                </Snackbar>
-              ) : (
-                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-                  <Alert onClose={handleClose} severity="error">
-                    {authStatus}
-                  </Alert>
-                </Snackbar>
-              )}
             </CardActions>
           </form>
         </CardContent>
       </Card>
-     </div>
+    </div>
   )
 }
 

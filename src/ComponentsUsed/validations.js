@@ -29,24 +29,8 @@ export class validations extends Component {
 
   static valueValidation({ type, value}) {
     switch (type) {
-     // case "text": return true
-
-     // case "name": return this.checkName(value)
-
-    //  case "phone": return this.checkNumber(value)
-
       case "email": return this.checkEmail(value)
 
-
-    //  case "address": return true
-
-     // case "alphanum": return true
-
-    //  case "file": return true
-
-   //   case "fromdate": return this.checkDateDiff(startDate, endDate)
-
-    // case "todate": return this.checkDateDiff(startDate, endDate)
 
       default: return true
     }
