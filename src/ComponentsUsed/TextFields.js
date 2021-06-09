@@ -24,21 +24,21 @@ export const EmailInput = ({
   return (
     <ValidatorForm autoComplete="on" onSubmit={handleSubmit} >
     <TextValidator
-      label={label}
-      name={name}
-      id={id}
-      className={className}
-      type={type}
-      onChange={handleChange}
-      helperText={!validate.checkEmail(value) ? "Enter valid " + label : ""}
-      errorMessages={["this field is required", "email is not valid"]}
-      validators={["required", "isEmail"]}
-      required={required}
-      value={value}
-      variant={variant}
-      size="small"
-      fullWidth
-    />
+        label={label}
+        name={name}
+        id={id}
+        className={className}
+        type={type}
+        onChange={handleChange}
+        helperText={!validate.checkEmail(value) ? "Enter valid " + label : ""}
+        errorMessages={["this field is required", "email is not valid"]}
+        validators={["required", "isEmail"]}
+        required={required}
+        value={value}
+        variant={variant}
+        size="small"
+        fullWidth
+      />
     </ValidatorForm>
   );
 };

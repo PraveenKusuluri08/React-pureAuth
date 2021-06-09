@@ -36,3 +36,23 @@ export const signUpFailure=(error)=>{
     payload : error.code
   }
 }
+
+export const signOutRequest=()=>{
+  return {
+    type:ACTIONS.AUTH_SIGNOUT_REQUEST,
+  }
+}
+
+export const signOutSuccess =()=>{
+  console.log("Signout success")
+  return {
+    type:ACTIONS.AUTH_SIGNOUT_SUCCESS
+  }
+}
+
+export const signOutFaliure=(payload)=>{
+  return {
+    type:ACTIONS.AUTH_SIGNOUT_FAILURE,
+    payload
+  }
+}
