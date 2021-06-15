@@ -83,12 +83,12 @@ function Presentation(props) {
         {modules.map((icon) => {
           return (
             <List>
-            <ListItem>
-              <Tooltip title={icon.text}>
-                <ListItemIcon>{icon.icon}</ListItemIcon>
-              </Tooltip>
-              <ListItemText primary={icon.text} />
-            </ListItem>
+              <ListItem>
+                <Tooltip title={icon.text}>
+                  <ListItemIcon>{icon.icon}</ListItemIcon>
+                </Tooltip>
+                <ListItemText primary={icon.text} />
+              </ListItem>
             </List>
           )
         })}
